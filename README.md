@@ -62,3 +62,11 @@ funciones de `services/` (están marcadas con `shortcut:`), sin tocar pantallas.
 - **Motion (9.2):** `cubic-bezier(.22,1,.36,1)` y `(.4,0,.2,1)`, tarjetas fade + 10 px, stagger 40 ms (máx. 5), skeleton tras 200 ms, `prefers-reduced-motion` respetado (CSS y `MotionConfig`).
 - **Accesibilidad (9.3):** `lang="es-MX"`, foco de 2 px visible, áreas de 44 px, enlace "saltar al contenido", menú móvil con foco atrapado y Esc.
 - **Fotografía (6):** ilustraciones SVG arquitectónicas generativas y monocromas (`PropertyArt`), sustituibles por fotografía real AVIF/WebP.
+
+## Despliegue
+
+- **GitHub Pages:** `.github/workflows/deploy-pages.yml` prueba, construye y publica en cada push a `main`
+  (o a la rama de desarrollo) y también a mano desde la pestaña *Actions*. Requiere activar una vez
+  *Settings → Pages → Source: GitHub Actions*. URL: `https://<usuario>.github.io/Larpers-Corp/`.
+- **Vista previa en un solo archivo:** `npm run build:artifact` genera `dist-artifact/index.html` autocontenido
+  (router en memoria, sin dependencias externas).

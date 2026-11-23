@@ -26,7 +26,7 @@ export function Field({ label, hint, error, as = 'input', className, children, o
           control,
           error ? 'border-error focus:border-error focus:shadow-[0_0_0_1px_var(--color-error)]' : 'border-divider',
           as === 'textarea' && 'min-h-32 resize-y py-3',
-          as === 'select' && 'appearance-none bg-[url(/chevron.svg)] bg-[length:16px] bg-[right_16px_center] bg-no-repeat pr-11',
+          as === 'select' && 'select-chevron appearance-none pr-11',
         )}
         {...props}
       >

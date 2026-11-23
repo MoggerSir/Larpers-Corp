@@ -1,5 +1,5 @@
 import { lazy } from 'react'
-import { createBrowserRouter } from 'react-router'
+import { createBrowserRouter, createMemoryRouter } from 'react-router'
 import { RootLayout } from '@/components/layout/RootLayout'
 
 // Una carpeta por pantalla; cada una se carga bajo demanda.
@@ -10,7 +10,7 @@ const About = lazy(() => import('@/screens/About/AboutScreen'))
 const Contact = lazy(() => import('@/screens/Contact/ContactScreen'))
 const NotFound = lazy(() => import('@/screens/NotFound/NotFoundScreen'))
 
-export const router = createBrowserRouter([
+const routes = [
   {
     element: <RootLayout />,
     children: [
@@ -23,4 +23,10 @@ export const router = createBrowserRouter([
       { path: '*', element: <NotFound /> },
     ],
   },
-])
+]
+
+// memory: vista previa embebida sin URL propia. browser: despliegue normal (respeta BASE_PATH).
+export const router =
+  import.meta.env.VITE_ROUTER === 'memory'
+    ? createMemoryRouter(routes)
+    : createBrowserRouter(routes, { basename: import.meta.env.BASE_URL })
